@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>More directives</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body ng-init ="data={name:'Eddy', isVisible: true, loggedIn: false, status:'red'}">
+	<div ng-cloak>
+		<div ng-switch ="data.loggedIn">
+			<div ng-switch-when="true">
+				Welcome: {{data.name}}
+			</div>
+			<div ng-switch-default ng-class="data.status">Login</div>
+		</div>
+		<br />
+		<div ng-show="data.isVisible">
+			Name: <input type="text" ng-model="data.name"/>
+			{{data.name}}
+		</div>
+	</div>
+	<blockquote>
+		ng-cloak:  Para evitar que se vea la plantilla html antes de que angular hace los remplazos, mientras está cargando https://docs.angularjs.org/api/ng/directive/ngCloak<br />
+		ng-switch: Mostar multiples elementos del html  https://docs.angularjs.org/api/ng/directive/ngSwitch<br />
+		ng-class: Agregar alguna clase a nuestros divs <br />
+		ng-show: Mostar o ocultar elementos htmls <br />
+		
+
+	</blockquote>
+	
+	<script src="angular.min.js"></script>
+</body>
+</html>
