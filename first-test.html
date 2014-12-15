@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>first test</title>
+	<meta charset="UTF-8">
+</head>
+<body ng-init="name='tu nombre'">
+	<div ng-hide="isHidden">
+		Name: <input type="text" ng-model ="name"/><br />
+		Your Name: {{name}}
+	</div>
+
+	Hide: <input type="checkbox" ng-model="isHidden"/>
+	<br />
+
+	<button ng-click="name='Eddy Hernández'">Change Name</button> <br /><br />
+	<span ng-bind="name"></span>
+
+	<blockquote>
+		ng-app: Inicializa la aplicación angular <br />
+		ng-hide: El div es esconde cuando el checkbox es seleccionado <br />
+		ng-model: Enlaza las propiedades del input <br />
+		ng-init: Podemos inicializar varabiles <br />
+		ng-click: enlaza el click del botton para realizar algo <br />
+		ng:bind: Si no queremos unsar { { } } y enlazar con el contenido 
+
+	</blockquote>
+	
+	<script src="angular.min.js"></script>
+</body>
+</html>
