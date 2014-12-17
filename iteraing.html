@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Iterating</title>
+	<meta charset="UTF-8">
+</head>
+<body ng-init="people=[{name:'Eddy', city:'Guatemala'}, {name:'Pepe', city:'USA'}]">
+	Nombres en el arreglo:<br />
+	<div>
+		<ul>
+			<li ng-repeat="person in people">{{ person.name }} {{ person.city }}</li>
+		</ul>
+		<table>
+			<tr>
+				<td>Name</td>
+				<td>Citi</td>
+			</tr>
+			<tr ng-repeat="person in people">
+				<td>{{ person.name }}</td>
+				<td>{{ person.city }}</td>
+			</tr>
+		</table>
+	</div>
+	<blockquote>
+		ng-repeat: https://docs.angularjs.org/api/ng/directive/ngRepeat
+	</blockquote>
+	<script src="angular.min.js"></script>
+</body>
+</html>
