@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Iterating over data</title>
+	<meta charset="UTF-8">
+</head>
+<body ng-init="customers=[{joined:'2012-12-02', name:'zeny', city:'Guatemala', orderTotal:9.9956},
+						  {joined:'2013-12-10', name:'Peter', city:'USA', orderTotal:12.551},
+						  {joined:'2014-11-04', name:'Lucas', city:'Panama', orderTotal:4.114},
+						  {joined:'2014-10-22', name:'Ron', city:'Honduras', orderTotal:42.55}]">
+	<h2>Customers</h2>
+	Filter: <input type="text" ng-model="customerFilter"/>
+	<br /><br />
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>City</th>
+			<th>Order</th>
+			<th>Joined</th>
+		</tr>
+		<tr ng-repeat="cust in customers | limitTo:3 | filter:customerFilter | orderBy:'name'">
+			<td>{{ cust.name | uppercase }}</td>
+			<td>{{ cust.city | lowercase }}</td>
+			<td>{{ cust.orderTotal | currency:'Q' }}</td>
+			<td>{{ cust.joined | date:'longDate' }}</td>
+		</tr>
+	</table>
+	<br />
+	<blockquote>
+	cyrrency: Si solo ponemos currency, toma el valor por defecto $, o podemos agregarle Q por ejemplo<br />
+	date: solo con date pone por default Dec 2, 2012, o podemos pasarle datos como el ejemplo 'yyyy', 'yyyy-MM-dd'
+	'medium' o 'longDate'<br />
+	filter:customerFilter Filtra lo que ingresamos en el input para buscarlo en cada una de las columnas o propiedades. pero si queremos filtar por una propiedad ponemos ng-model="customerFilter.name" con el nombre de la propiedad
+	</blockquote>
+	<script src="angular.min.js"></script>
+</body>
+</html>
