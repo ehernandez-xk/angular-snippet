@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Iterating over data</title>
+	<meta charset="UTF-8">
+</head>
+<body ng-init="customers=[{joined:'2012-12-02', name:'zeny', city:'Guatemala', orderTotal:9.9956},
+						  {joined:'2013-12-10', name:'Peter', city:'USA', orderTotal:12.551},
+						  {joined:'2014-11-04', name:'Lucas', city:'Panama', orderTotal:4.114},
+						  {joined:'2014-10-22', name:'Ron', city:'Honduras', orderTotal:42.55}]">
+	<h2>Customers</h2>
+	Filter by name: <input type="text" ng-model="customerFilter.name"/>
+	<br /><br />
+	<table>
+		<tr>
+			<th ng-click="ordenar='name';reverse=!reverse">Name</th>
+			<th ng-click="ordenar='city';reverse=!reverse">City</th>
+			<th ng-click="ordenar='orderTotal';reverse=!reverse">Order</th>
+			<th ng-click="ordenar='joined';reverse=!reverse">Joined</th>
+		</tr>
+		<tr ng-repeat="cust in customers | limitTo:3 | filter:customerFilter | orderBy:ordenar:reverse">
+			<td>{{ cust.name | uppercase }}</td>
+			<td>{{ cust.city | lowercase }}</td>
+			<td>{{ cust.orderTotal | currency:'Q' }}</td>
+			<td>{{ cust.joined | date:'longDate' }}</td>
+		</tr>
+	</table>
+	<br />
+	<blockquote>
+	Podemos filtar por el input, y hacer clik sobre los titulos de las tablas<br />
+	ng-click : Nos ayuda a atar una variable con el evento click, en este caso a una variable llamada "ordenar"<br />
+	reverse :  hacer un reverse de lo filtrado por ejemplo podriamos usarlo orderBy:'name' : reverse='true' <br />
+	https://docs.angularjs.org/api/ng/filter/orderBy
+	</blockquote>
+	<script src="angular.min.js"></script>
+</body>
+</html>
